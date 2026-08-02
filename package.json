@@ -1,7 +1,7 @@
 {
-  "name": "svg-language-support",
-  "displayName": "SVG Language Support",
-  "de ion": "A language identifier for SVG with basic syntax highlighting",
+  "name": "svg-language-mode-id",
+  "displayName": "SVG Language Mode ID",
+  "description": "A language identifier for SVG with basic syntax highlighting",
   "version": "0.0.1",
   "publisher": "ideasonpurpose",
   "license": "MIT",
