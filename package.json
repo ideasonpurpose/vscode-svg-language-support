@@ -2,7 +2,7 @@
   "name": "svg-language-mode-id",
   "displayName": "SVG Language Mode ID",
   "description": "A language identifier for SVG with basic syntax highlighting",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "ideasonpurpose",
   "license": "MIT",
   "author": {
