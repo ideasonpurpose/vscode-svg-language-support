@@ -1,3 +1,4 @@
+name: Publish to VS Code Marketplace
 on:
   push:
     branches:
