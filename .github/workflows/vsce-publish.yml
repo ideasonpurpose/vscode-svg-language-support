@@ -1,20 +1,34 @@
 name: Publish to VS Code Marketplace
+
 on:
   push:
-    branches:
-      - main
-  release:
-    types:
-      - created
+    branches: [main]
+  workflow_dispatch: # handy for manual runs
+  # keep the release trigger if you still want it
+  # release:
+  #   types: [created]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required for OIDC
+      contents: read
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: 24
+
       - run: npm ci
+
+      - uses: azure/login@v3
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          allow-no-subscriptions: true
+
       - name: Publish
-        run: npm run deploy
+        run: npx @vscode/vsce publish --azure-credential
+        # or: npm run deploy   if your deploy script already contains the --azure-credential flag
