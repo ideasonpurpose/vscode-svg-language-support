@@ -1,7 +1,7 @@
 {
   "name": "svg-language-support",
   "displayName": "SVG Language Support",
-  "description": "A language identifier for SVG with basic syntax highlighting",
+  "de ion": "A language identifier for SVG with basic syntax highlighting",
   "version": "0.0.1",
   "publisher": "ideasonpurpose",
   "license": "MIT",
@@ -12,6 +12,9 @@
   },
   "engines": {
     "vscode": "^1.80.0"
+  },
+  "scripts": {
+    "deploy": "vsce publish --yarn"
   },
   "categories": [
     "Programming Languages"
