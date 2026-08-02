@@ -1,0 +1,66 @@
+{
+  "name": "svg-language-support",
+  "displayName": "SVG Language Support",
+  "description": "A language identifier for SVG with basic syntax highlighting",
+  "version": "0.0.1",
+  "publisher": "ideasonpurpose",
+  "license": "MIT",
+  "author": {
+    "name": "Joe Maller",
+    "email": "joe@ideasonpurpose.com",
+    "url": "https://ideasonpurpose.com"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "svg",
+    "xml",
+    "syntax highlighting",
+    "language"
+  ],
+  "icon": "svg-language-support-icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ideasonpurpose/vscode-svg-language-support"
+  },
+  "bugs": {
+    "url": "https://github.com/ideasonpurpose/vscode-svg-language-support/issues"
+  },
+  "homepage": "https://github.com/ideasonpurpose/vscode-svg-language-support#readme",
+  "contributes": {
+    "languages": [
+      {
+        "id": "svg",
+        "aliases": [
+          "Scalable Vector Graphics (SVG)",
+          "SVG",
+          "svg"
+        ],
+        "extensions": [
+          ".svg"
+        ],
+        "mimetypes": [
+          "image/svg+xml"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "svg",
+        "scopeName": "text.xml.svg",
+        "path": "./syntaxes/svg.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.css.embedded.svg": "css",
+          "source.js.embedded.svg": "javascript"
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.9.2"
+  }
+}

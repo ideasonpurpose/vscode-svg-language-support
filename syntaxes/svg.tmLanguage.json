@@ -1,0 +1,96 @@
+{
+  "name": "SVG",
+  "scopeName": "text.xml.svg",
+  "fileTypes": ["svg"],
+  "foldingStartMarker": "^\\s*(<[^!?%/](?!.+?(/>|</.+?>))|<[!%]--(?!.+?--%?>)|<%[!]?(?!.+?%>))",
+  "foldingStopMarker": "^\\s*(</[^>]+>|[/%]>|-->)\\s*$",
+  "patterns": [
+    {
+      "begin": "(?:^\\s+)?(<)((?i:style))\\b(?![^>]*/>)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.svg" },
+        "2": { "name": "entity.name.tag.style.svg" }
+      },
+      "end": "(</)((?i:style))(>)(?:\\s*\\n)?",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.svg" },
+        "2": { "name": "entity.name.tag.style.svg" },
+        "3": { "name": "punctuation.definition.tag.svg" }
+      },
+      "name": "meta.tag.style.svg",
+      "patterns": [
+        {
+          "include": "text.xml#tagStuff"
+        },
+        {
+          "begin": "(>)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.definition.tag.svg" }
+          },
+          "end": "(?=</(?i:style))",
+          "contentName": "source.css.embedded.svg",
+          "patterns": [{ "include": "source.css" }]
+        }
+      ]
+    },
+    {
+      "begin": "(?:^\\s+)?(<)((?i:script))\\b(?![^>]*/>)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.svg" },
+        "2": { "name": "entity.name.tag.script.svg" }
+      },
+      "end": "(</)((?i:script))(>)(?:\\s*\\n)?",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.svg" },
+        "2": { "name": "entity.name.tag.script.svg" },
+        "3": { "name": "punctuation.definition.tag.svg" }
+      },
+      "name": "meta.tag.script.svg",
+      "patterns": [
+        {
+          "include": "text.xml#tagStuff"
+        },
+        {
+          "begin": "(>)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.definition.tag.svg" }
+          },
+          "end": "(?=</(?i:script))",
+          "contentName": "source.js.embedded.svg",
+          "patterns": [{ "include": "source.js" }]
+        }
+      ]
+    },
+    {
+      "begin": "(?:^\\s+)?(<)((?i:handler))\\b(?![^>]*/>)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.svg" },
+        "2": { "name": "entity.name.tag.handler.svg" }
+      },
+      "end": "(</)((?i:handler))(>)(?:\\s*\\n)?",
+      "endCaptures": {
+        "1": { "name": "punctuation.definition.tag.svg" },
+        "2": { "name": "entity.name.tag.handler.svg" },
+        "3": { "name": "punctuation.definition.tag.svg" }
+      },
+      "name": "meta.tag.handler.svg",
+      "patterns": [
+        {
+          "include": "text.xml#tagStuff"
+        },
+        {
+          "begin": "(>)",
+          "beginCaptures": {
+            "1": { "name": "punctuation.definition.tag.svg" }
+          },
+          "end": "(?=</(?i:handler))",
+          "contentName": "source.js.embedded.svg",
+          "patterns": [{ "include": "source.js" }]
+        }
+      ]
+    },
+    {
+      "include": "text.xml"
+    }
+  ]
+}
